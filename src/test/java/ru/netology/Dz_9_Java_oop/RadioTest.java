@@ -15,7 +15,16 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void shouldSetStationBelowMin() {
+        Radio cond = new Radio();
+        cond.setCurrentStation(-1);
 
+        int expected = 0;
+        int actual = cond.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
     @Test
     public void shouldNotSetStationAboveMax() {
         Radio cond = new Radio();
@@ -39,7 +48,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test //
+    @Test
     public void shouldStationUp() {
         Radio cond = new Radio();
         cond.setCurrentStation(9);
@@ -50,7 +59,17 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void shouldStationUpNegativeNumberMax() {
+        Radio cond = new Radio();
+        cond.setCurrentStation(10);
+        cond.StationUp();
 
+        int expected = 1;
+        int actual = cond.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
     @Test //
     public void shouldStationDown() {
         Radio cond = new Radio();
@@ -73,7 +92,16 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void shouldSetVolumeBelowMin() {
+        Radio cond = new Radio();
+        cond.setCurrentVolume(-1);
 
+        int expected = 0;
+        int actual = cond.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
     @Test //
     public void shouldNotSetVolumeAboveMax() {
         Radio cond = new Radio();
@@ -112,10 +140,10 @@ public class RadioTest {
     @Test //
     public void shouldVolumeDown() {
         Radio cond = new Radio();
-        cond.setCurrentVolume(10);
+        cond.setCurrentVolume(9);
         cond.volumeDown();
 
-        int expected = 9;
+        int expected = 8;
         int actual = cond.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);

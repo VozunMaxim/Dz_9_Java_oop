@@ -24,12 +24,12 @@ public class Radio {
 
 
     public void StationUp() {  //цикличное повышение
-        if (currentStation <= 9)
-            currentStation++;
-
-        if (currentStation > 9)
+        if (currentStation <= 9) {
+            currentStation ++;
+        }
+        if (currentStation > 9) {
             currentStation = 0;
-
+        }
     }
 
     public void StationDown() {   //цикличное понижение
