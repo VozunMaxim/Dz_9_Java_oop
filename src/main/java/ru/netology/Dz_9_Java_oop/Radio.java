@@ -1,22 +1,21 @@
 package ru.netology.Dz_9_Java_oop;
 
 public class Radio {
-    private int maxStation;
-    private int minStation;
-    private int currentStation;
-    private int maxVolume;
-    private int minVolume;
-    private int currentVolume;
+    private int maxStation = 9;
+    private int minStation = 0;
+    private int currentStation = minStation;
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    private int currentVolume = minVolume;
     private int numberOfStations;
+
+
+    public Radio(int numberOfStations) {
+        this.numberOfStations = numberOfStations;
+    }
 
     public Radio() {
         numberOfStations = 10;
-        maxStation = 9;
-        minStation = 0;
-        currentStation = minStation;
-        maxVolume = 100;
-        minVolume = 0;
-        currentVolume = minVolume;
     }
 
     public int numberOfStations() {

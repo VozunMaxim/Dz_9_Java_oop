@@ -25,6 +25,16 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, radio.numberOfStations());
     }
+    @Test
+    public void numberOfStations() {
+        Radio radio = new Radio(10);
+        radio.numberOfStations();
+
+        int expected = 10;
+
+        Assertions.assertEquals(expected, radio.numberOfStations());
+    }
+
 
     @Test
     public void shouldSetStationBelowMin() {
@@ -247,5 +257,6 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
 
 }
