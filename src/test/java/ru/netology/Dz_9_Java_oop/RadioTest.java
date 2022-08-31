@@ -53,7 +53,7 @@ public class RadioTest {
         Radio radio = new Radio(18);
         radio.setToMaxStation();
 
-        int expected = 9;
+        int expected = 17;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
@@ -61,11 +61,11 @@ public class RadioTest {
 
     @Test
     public void shouldStationUp() {
-        Radio radio = new Radio(11);
-        radio.setCurrentStation(9);
+        Radio radio = new Radio(13);
+        radio.setCurrentStation(10);
         radio.StationUp();
 
-        int expected = 10;
+        int expected = 11;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
@@ -73,7 +73,7 @@ public class RadioTest {
 
     @Test
     public void shouldStationUpNegativeNumberMax() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(13);
         radio.setCurrentStation(15);
         radio.StationUp();
 
@@ -84,12 +84,24 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldStationUpNumberMax() {
+        Radio radio = new Radio(11);
+        radio.setCurrentStation(10);
+        radio.StationUp();
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldStationDownNegativeNumberMin() {
-        Radio radio = new Radio(15);
+        Radio radio = new Radio();
         radio.setCurrentStation(-1);
         radio.StationDown();
 
-        int expected = 14;
+        int expected = 9;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
@@ -110,10 +122,10 @@ public class RadioTest {
     @Test
     public void shouldStationDownNumberMax() {
         Radio radio = new Radio();
-        radio.setCurrentStation(12);
+        radio.setCurrentStation(9);
         radio.StationDown();
 
-        int expected = 9;
+        int expected = 8;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
@@ -122,10 +134,10 @@ public class RadioTest {
     @Test
     public void shouldStationDown() {
         Radio radio = new Radio(11);
-        radio.setCurrentStation(8);
+        radio.setCurrentStation(5);
         radio.StationDown();
 
-        int expected = 7;
+        int expected = 4;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);

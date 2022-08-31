@@ -1,12 +1,12 @@
 package ru.netology.Dz_9_Java_oop;
 
 public class Radio {
-    private int maxStation = 9;
-    private int minStation = 0;
-    private int currentStation = minStation;
+    //    private int maxStation = 9;
+    private int minStation;
+    private int currentStation;
     private int maxVolume = 100;
-    private int minVolume = 0;
-    private int currentVolume = minVolume;
+    private int minVolume;
+    private int currentVolume;
     private int numberOfStations;
 
 
@@ -33,18 +33,18 @@ public class Radio {
         if (newCurrentStation < minStation) {
             return;
         }
-        if (newCurrentStation > numberOfStations -1) {
+        if (newCurrentStation > numberOfStations - 1) {
             return;
         }
         currentStation = newCurrentStation;
     }
 
     public void setToMaxStation() {
-        currentStation = maxStation;
+        currentStation = numberOfStations - 1;
     }
 
     public void StationUp() {  //цикличное повышение
-        if (currentStation >= numberOfStations -1) {
+        if (currentStation >= numberOfStations - 1) {
             currentStation = minStation;
         } else {
             currentStation++;
@@ -53,12 +53,13 @@ public class Radio {
 
     public void StationDown() {   //цикличное понижение
         if (currentStation <= minStation) {
-            currentStation = numberOfStations -1;
-            return;
+            currentStation = numberOfStations - 1;
+//            return;
         }
-        if (currentStation >= numberOfStations -1) {
-            currentStation = numberOfStations -1;
-        } else {
+//        if (currentStation >= numberOfStations -1) {
+//            currentStation = numberOfStations -1;
+//        }
+        else {
             currentStation--;
         }
     }
