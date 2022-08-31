@@ -11,14 +11,17 @@ public class Radio {
 
 
     public Radio(int numberOfStations) {
+
         this.numberOfStations = numberOfStations;
     }
 
     public Radio() {
+
         numberOfStations = 10;
     }
 
     public int numberOfStations() {
+
         return numberOfStations;
     }
 
@@ -30,7 +33,7 @@ public class Radio {
         if (newCurrentStation < minStation) {
             return;
         }
-        if (newCurrentStation > maxStation) {
+        if (newCurrentStation > numberOfStations -1) {
             return;
         }
         currentStation = newCurrentStation;
@@ -41,7 +44,7 @@ public class Radio {
     }
 
     public void StationUp() {  //цикличное повышение
-        if (currentStation >= maxStation) {
+        if (currentStation >= numberOfStations -1) {
             currentStation = minStation;
         } else {
             currentStation++;
@@ -50,11 +53,11 @@ public class Radio {
 
     public void StationDown() {   //цикличное понижение
         if (currentStation <= minStation) {
-            currentStation = maxStation;
+            currentStation = numberOfStations -1;
             return;
         }
-        if (currentStation >= maxStation) {
-            currentStation = maxStation;
+        if (currentStation >= numberOfStations -1) {
+            currentStation = numberOfStations -1;
         } else {
             currentStation--;
         }
